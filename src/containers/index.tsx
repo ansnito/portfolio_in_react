@@ -1,5 +1,10 @@
+import { Box } from "@mui/material"
+import Header from "../components/header"
+// import Footer from "../components/footer"
 export default function IndexPage() {
     return(
-        <div>My Portfolio</div>
+       <Box>
+        <Header />
+       </Box>
     )
 }
