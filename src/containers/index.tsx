@@ -124,7 +124,7 @@ export default function IndexPage() {
             mt: { sm: 10, xs: 10, md: 20 },
           }}
         >
-          <Grid container>
+          <Grid container >
             <Grid item xs={12} sm={12} md={6}>
               <Box>
                 <Grid container direction="column" spacing={2}>
@@ -133,11 +133,13 @@ export default function IndexPage() {
                       Hi, I'm Ans Nito
                     </Typography>
                   </Grid>
-                  <Grid item sx={{ mt: 6 }}>
+                
+                  <Grid item sx={{ mt: {xs: 1, sm: 1, md: 6} }}>
                     <Typography variant="h1" gutterBottom color="primary.main">
                       Frontend Developer & <br /> UI/UX Designer
                     </Typography>
                   </Grid>
+                 
                   <Grid item>
                     <Typography variant="body2" gutterBottom>
                       Front-End Developer & UI/UX Designer with a passion for
@@ -253,7 +255,7 @@ export default function IndexPage() {
                 alignItems: 'center',
               }}
             >
-              <img src={mePhoto} style={{ width: '80%' }} alt="me" />
+              <Box component='img' src={mePhoto} sx={{ width: '80%' }} alt="me" />
             </Grid>
           </Grid>
         </Box>
@@ -815,7 +817,7 @@ export default function IndexPage() {
           variant="caption"
           sx={{ textAlign: 'center' }}
         >
-          60 havelock Street
+          60 Havelock Street
           <br /> Aylesbury
           <br /> HP199AW
           <br /> United Kingdom

@@ -1,10 +1,10 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import tinycolor from 'tinycolor2';
 
 
 
 
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     primary: {
       light: tinycolor('#5069DE').lighten(5).toString(),
@@ -51,5 +51,6 @@ const theme = createTheme({
     borderRadius: 8,
   },
 });
+theme = responsiveFontSizes(theme);
 
 export default theme;

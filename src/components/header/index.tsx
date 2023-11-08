@@ -9,6 +9,8 @@ import {
   PROJECTS,
   SKILLS,
 } from '../../configs/constants/constants';
+import { useTheme } from '@mui/system';
+
 
 const TabStyled = styled(Tab)(({ theme }) => ({
   textTransform: 'capitalize',
@@ -25,13 +27,30 @@ interface HeaderProps {
 }
 
 export default function Header({ section, handleTabChange }: HeaderProps) {
+  const theme = useTheme()
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
-        sx={{ backgroundColor: 'secondary.main', boxShadow: 'none' }}
+        sx={{
+          backgroundColor: 'secondary.main',
+          boxShadow: 'none',
+        }}
         position="fixed"
       >
-        <Box sx={{ display: 'flex', flexDirection: 'row', pt: 1, pl: 2 , alignItems: 'center'}}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            pt: 1,
+            pl: 2,
+            alignItems: 'center',
+            [theme.breakpoints.down('sm')]: {
+              flexDirection: 'column', // Stack items vertically on small screens
+              alignItems: 'center', // Center align items
+              textAlign: 'center', // Center align text
+            },
+          }}
+        >
           <Box flex={6} flexDirection="row" display="flex">
             {/* FIRST PART */}
             <Typography
@@ -49,13 +68,12 @@ export default function Header({ section, handleTabChange }: HeaderProps) {
               nito
             </Typography>
           </Box>
-          <Box flex={6}>
+          <Box flex={6} sx={{display: {sm: 'none', xs: 'none', md: 'flex'}}}>
             <Tabs
               value={section}
               onChange={(_, newValue) => handleTabChange(newValue)}
             >
               <TabStyled label={HOME} value={HOME} />
-
               <TabStyled label={SKILLS} value={SKILLS} />
               <TabStyled label={ABOUT} value={ABOUT} />
               <TabStyled label={PROJECTS} value={PROJECTS} />
