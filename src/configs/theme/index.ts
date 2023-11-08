@@ -2,18 +2,20 @@ import { createTheme } from '@mui/material/styles';
 import tinycolor from 'tinycolor2';
 
 
+
+
 const theme = createTheme({
   palette: {
     primary: {
-      light: tinycolor('#5069DE').lighten(100).toString(),
+      light: tinycolor('#5069DE').lighten(5).toString(),
       main: tinycolor('#5069DE').toHexString(),
-      dark: tinycolor('#5069DE').darken(100).toString(),
+      dark: tinycolor('#5069DE').darken(5).toString(),
       contrastText: '#fff',
     },
     secondary: {
-        light: tinycolor('#fff').lighten(100).toString(),
+        light: tinycolor('#fff').lighten(5).toString(),
         main: tinycolor('#fff').toHexString(),
-        dark: tinycolor('#fff').darken(100).toString(),
+        dark: tinycolor('#fff').darken(5).toString(),
         contrastText: '#696969',
     },
     text: {
@@ -25,19 +27,23 @@ const theme = createTheme({
     fontFamily: 'Poppins, sans-serif',
     fontSize: 16,
     h1: {
-        fontSize: 64,
-        fontWeight: 500
-    },
-    h2: {
         fontSize: 48,
         fontWeight: 500
     },
-    body1: {
+    h2: {
         fontSize: 32,
+        fontWeight: 500
+    },
+    body1: {
+        fontSize: 24,
         fontWeight: 400
     },
+    body2: {
+      fontSize: 22,
+      fontWeight: 200
+  },
     subtitle1: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: 400
     }
   },
