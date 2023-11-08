@@ -58,9 +58,8 @@ export default function IndexPage() {
   const defaultTab = location.hash.replace('#', '') || HOME;
   const [value, setValue] = React.useState(defaultTab);
   const [blogs, setBlogs] = React.useState<Blog[]>([]);
-  const [isNestie, setIsNestie] = React.useState<Boolean>(false)
-  const [isTeachMate, setIsTeachMate] = React.useState<Boolean>(false)
-
+  const [isNestie, setIsNestie] = React.useState<Boolean>(false);
+  const [isTeachMate, setIsTeachMate] = React.useState<Boolean>(false);
 
   const navigate = useNavigate();
   // Event listener to update the URL based on scroll position
@@ -115,18 +114,18 @@ export default function IndexPage() {
   return (
     <Box>
       <Header section={value} handleTabChange={handleTabChange} />
-      <Box p={8}>
+      <Box sx={{ p: { xs: 1, sm: 1, md: 8 } }}>
         <Box
           key={HOME}
           id={HOME}
           sx={{
-            mb: 20,
+            mb: { sm: 10, xs: 10, md: 20 },
             display: 'flex',
-            mt: 20,
+            mt: { sm: 10, xs: 10, md: 20 },
           }}
         >
           <Grid container>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={12} md={6}>
               <Box>
                 <Grid container direction="column" spacing={2}>
                   <Grid item>
@@ -245,7 +244,9 @@ export default function IndexPage() {
             </Grid>
             <Grid
               item
-              xs={6}
+              xs={12}
+              sm={12}
+              md={6}
               sx={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -261,20 +262,20 @@ export default function IndexPage() {
           key={SKILLS}
           id={SKILLS}
           sx={{
-            mb: 20,
+            mb: { sm: 10, xs: 10, md: 20 },
             display: 'flex',
-            mt: 20,
+            mt: { sm: 10, xs: 10, md: 20 },
           }}
         >
           <Grid container direction="row" spacing={3} alignItems="center">
             <Grid
               item
-              xs={5}
+              md={5}
               sx={{
-                display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'flex-start',
                 flexDirection: 'column',
+                display: { sm: 'none', xs: 'none', md: 'flex' },
               }}
             >
               <img
@@ -283,7 +284,7 @@ export default function IndexPage() {
                 alt="aboutme"
               />
             </Grid>
-            <Grid item xs={7}>
+            <Grid item md={7}>
               <Box display="flex" flexDirection="column">
                 <Typography
                   color="primary.dark"
@@ -355,14 +356,14 @@ export default function IndexPage() {
           display="flex"
           flexDirection="column"
           sx={{
-            mb: 20,
+            mb: { sm: 10, xs: 10, md: 20 },
             display: 'flex',
-            mt: 20,
+            mt: { sm: 10, xs: 10, md: 20 },
             alignItems: 'center',
           }}
         >
           <Grid container direction="row" spacing={3} alignItems="center">
-            <Grid item xs={8}>
+            <Grid item xs={12} md={8}>
               <Typography
                 color="primary.dark"
                 variant="h6"
@@ -381,9 +382,9 @@ export default function IndexPage() {
             </Grid>
             <Grid
               item
-              xs={4}
+              md={4}
               sx={{
-                display: 'flex',
+                display: { xs: 'none', sm: 'none', md: 'flex' },
                 justifyContent: 'center',
                 alignItems: 'flex-start',
                 flexDirection: 'column',
@@ -398,29 +399,28 @@ export default function IndexPage() {
           </Grid>
           <Grid
             container
-            sx={{ mt: 12 }}
+            sx={{ mt: { xs: 6, sm: 6, md: 12 } }}
             direction="column"
             alignItems="center"
-            spacing={2}
+            // spacing={2}
           >
             <Grid item xs={12}>
               <img src={EducationImage} alt="education" style={{ width: 60 }} />
             </Grid>
             <Grid item xs={12} sx={{ width: '100%' }}>
-              <Grid
-                container
-                direction="row"
-                justifyContent="space-evenly"
-                spacing={10}
-              >
+              <Grid container direction="row" justifyContent="space-evenly">
                 <Grid
                   item
                   xs={5}
                   sx={{ display: 'flex', justifyContent: 'flex-end' }}
                 >
-                  <img
+                  <Box
+                    component="img"
                     src={KingstonImage}
-                    style={{ width: 120 }}
+                    sx={{
+                      height: { md: 120, xs: 120, sm: 120 },
+                      marginRight: { xs: 5, sm: 5, md: 10 },
+                    }}
                     alt="kingston"
                   />
                 </Grid>
@@ -448,18 +448,21 @@ export default function IndexPage() {
               </Grid>
             </Grid>
             <Grid item xs={12} sx={{ width: '100%', mt: 10 }}>
-              <Grid
-                container
-                direction="row"
-                justifyContent="space-evenly"
-                spacing={10}
-              >
+              <Grid container direction="row" justifyContent="space-evenly">
                 <Grid
                   item
                   xs={5}
                   sx={{ display: 'flex', justifyContent: 'flex-end' }}
                 >
-                  <img src={MGImage} style={{ width: 120 }} alt="mg" />
+                  <Box
+                    component="img"
+                    src={MGImage}
+                    sx={{
+                      height: { md: 120, xs: 120, sm: 120 },
+                      marginRight: { xs: 5, sm: 5, md: 10 },
+                    }}
+                    alt="mg"
+                  />
                 </Grid>
                 <Grid
                   item
@@ -500,20 +503,19 @@ export default function IndexPage() {
               />
             </Grid>
             <Grid item xs={12} sx={{ width: '100%' }}>
-              <Grid
-                container
-                direction="row"
-                justifyContent="space-evenly"
-                spacing={10}
-              >
+              <Grid container direction="row" justifyContent="space-evenly">
                 <Grid
                   item
                   xs={5}
                   sx={{ display: 'flex', justifyContent: 'flex-end' }}
                 >
-                  <img
+                  <Box
+                    component="img"
                     src={EmpressImage}
-                    style={{ width: 120 }}
+                    sx={{
+                      height: { md: 120, xs: 120, sm: 120 },
+                      marginRight: { xs: 5, sm: 5, md: 10 },
+                    }}
                     alt="empress"
                   />
                 </Grid>
@@ -548,9 +550,9 @@ export default function IndexPage() {
           display="flex"
           flexDirection="column"
           sx={{
-            mb: 20,
+            mb: { sm: 10, xs: 10, md: 20 },
             display: 'flex',
-            mt: 20,
+            mt: { sm: 10, xs: 10, md: 20 },
             alignItems: 'center',
           }}
         >
@@ -576,27 +578,33 @@ export default function IndexPage() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container direction="row" spacing={3} alignItems="center">
+            <Grid container direction="row" spacing={3} alignItems="flex-start">
               <Grid item xs={6}>
-               {isNestie ?  <Box
-                  sx={{
-                    margin: 'auto',
-                    borderStyle: 'none',
-                    height: '100%',
-                    display: 'block',
-                  }}
-                >
-                  <iframe
-                    style={{
-                      border: 'none',
+                {isNestie ? (
+                  <Box
+                    sx={{
+                      margin: 'auto',
+                      borderStyle: 'none',
+                      height: '100%',
+                      display: 'block',
                     }}
-                    width="100%"
-                    height="1087"
-                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FtFgnEjcg9IA1famn7rkofT%2FNestie%3Ftype%3Ddesign%26node-id%3D100-2677%26t%3DAgN9alqzuoKBQBUg-1%26scaling%3Dmin-zoom%26page-id%3D2%253A4%26starting-point-node-id%3D100%253A2677%26mode%3Ddesign%26hide-ui=1"
-                  ></iframe>
-                </Box>:
-                   <img src={NestieImage} alt='teachmate' style={{width: '100%'}}></img>
-                }
+                  >
+                    <iframe
+                      style={{
+                        border: 'none',
+                      }}
+                      width="100%"
+                      height="1087"
+                      src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FtFgnEjcg9IA1famn7rkofT%2FNestie%3Ftype%3Ddesign%26node-id%3D100-2677%26t%3DAgN9alqzuoKBQBUg-1%26scaling%3Dmin-zoom%26page-id%3D2%253A4%26starting-point-node-id%3D100%253A2677%26mode%3Ddesign%26hide-ui=1"
+                    ></iframe>
+                  </Box>
+                ) : (
+                  <img
+                    src={NestieImage}
+                    alt="teachmate"
+                    style={{ width: '100%' }}
+                  ></img>
+                )}
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="h6" sx={{ color: '#03BC85' }}>
@@ -606,32 +614,43 @@ export default function IndexPage() {
                   An Application designed to simplify the life of international
                   students in Shared Residences.
                 </Typography>
-                <Button onClick={() => setIsNestie(true)} variant='contained' sx={{backgroundColor: '#03BC85', mt: 5}} disableElevation>View</Button>
+                <Button
+                  onClick={() => setIsNestie(true)}
+                  variant="contained"
+                  sx={{ mt: 5, display: { xs: 'none', sm: 'block' } }}
+                  disableElevation
+                >
+                  View
+                </Button>
               </Grid>
             </Grid>
-            <Grid container direction="row" spacing={3} alignItems="center">
+            <Grid container direction="row" spacing={3} alignItems="flex-start">
               <Grid item xs={6}>
-                { isTeachMate ? 
-                <Box
-                  sx={{
-                    margin: 'auto',
-                    borderStyle: 'none',
-                    height: '100%',
-                    display: 'block',
-                  }}
-                >
-                  <iframe
-                    style={{
-                      border: '1px solid rgba(0, 0, 0, 0.1)',
+                {isTeachMate ? (
+                  <Box
+                    sx={{
+                      margin: 'auto',
+                      borderStyle: 'none',
+                      height: '100%',
+                      display: 'block',
                     }}
-                    width="100%"
-                    height="1087"
-                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fep52iT0bx0MRfp4dJWVDVl%2FTeach-Mate%3Ftype%3Ddesign%26node-id%3D1-19%26t%3DWRZwKFClXDglJgfm-1%26scaling%3Dmin-zoom%26page-id%3D0%253A1%26starting-point-node-id%3D1%253A19%26mode%3Ddesign%26hide-ui=1"
-                  ></iframe>
-                </Box>:
-                
-                <img src={TeachMateImage} alt='teachmate' style={{width: '100%'}}></img>
-                }
+                  >
+                    <iframe
+                      style={{
+                        border: '1px solid rgba(0, 0, 0, 0.1)',
+                      }}
+                      width="100%"
+                      height="1087"
+                      src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fep52iT0bx0MRfp4dJWVDVl%2FTeach-Mate%3Ftype%3Ddesign%26node-id%3D1-19%26t%3DWRZwKFClXDglJgfm-1%26scaling%3Dmin-zoom%26page-id%3D0%253A1%26starting-point-node-id%3D1%253A19%26mode%3Ddesign%26hide-ui=1"
+                    ></iframe>
+                  </Box>
+                ) : (
+                  <img
+                    src={TeachMateImage}
+                    alt="teachmate"
+                    style={{ width: '100%' }}
+                  ></img>
+                )}
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="h6" color="primary.main">
@@ -647,8 +666,14 @@ export default function IndexPage() {
                   community platform to establish a social rapport with
                   co-teachers who have similar interests.
                 </Typography>
-                <Button onClick={() => setIsTeachMate(true)} variant='contained' sx={{ mt: 5}} disableElevation>View</Button>
-
+                <Button
+                  onClick={() => setIsTeachMate(true)}
+                  variant="contained"
+                  sx={{ mt: 5, display: { xs: 'none', sm: 'block' } }}
+                  disableElevation
+                >
+                  View
+                </Button>
               </Grid>
             </Grid>
           </Box>
@@ -659,9 +684,9 @@ export default function IndexPage() {
           display="flex"
           flexDirection="column"
           sx={{
-            mb: 20,
+            mb: { sm: 10, xs: 10, md: 20 },
             display: 'flex',
-            mt: 20,
+            mt: { sm: 10, xs: 10, md: 20 },
             alignItems: 'center',
           }}
         >
@@ -722,7 +747,7 @@ export default function IndexPage() {
           flexDirection="column"
           sx={{
             display: 'flex',
-            mt: 20,
+            mt: { sm: 10, xs: 10, md: 20 },
             alignItems: 'center',
           }}
         >
@@ -777,8 +802,24 @@ export default function IndexPage() {
           </Grid>
         </Box>
       </Box>
-      <Box bgcolor="primary.main" width="100%" height={100} display='flex' justifyContent='center' alignItems='center'>
-        <Typography color='secondary.main' variant='caption' sx={{textAlign: 'center'}}>60 havelock Street<br/> Aylesbury<br/> HP199AW<br/> United Kingdom</Typography>
+      <Box
+        bgcolor="primary.main"
+        width="100%"
+        height={100}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Typography
+          color="secondary.main"
+          variant="caption"
+          sx={{ textAlign: 'center' }}
+        >
+          60 havelock Street
+          <br /> Aylesbury
+          <br /> HP199AW
+          <br /> United Kingdom
+        </Typography>
       </Box>
     </Box>
   );
