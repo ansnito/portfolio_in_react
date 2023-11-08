@@ -610,7 +610,7 @@ export default function IndexPage() {
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="h6" sx={{ color: '#03BC85' }}>
-                  Nesite
+                  Nestie
                 </Typography>
                 <Typography variant="subtitle1">
                   An Application designed to simplify the life of international
